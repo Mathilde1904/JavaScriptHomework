@@ -16,5 +16,16 @@ function textToNumbers(list) {
     return numbers
 }
 
+//Task 1c
+function pairSums(numbers) {
+
+    let sums = [];
+
+    for (let i = 0; i < numbers.length - 1; i++) {
+        sums.push(numbers[i] + numbers[i + 1]);
+    }
+
+    return sums;
+}
 
 
