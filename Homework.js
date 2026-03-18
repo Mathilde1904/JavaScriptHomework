@@ -51,8 +51,16 @@ function addTask() {
         }
     };
 
+    var deleteBtn=document.createElement("button");
+    deleteBtn.innerHTML="Delete";
+
+    deleteBtn.onclick=function(){
+        li.remove();
+    };
+
     li.append(checkbox);
     li.appendChild(span);
+    li.appendChild(deleteBtn);
 
-    document.getElementById("list").appendChild(li)
+    document.getElementById("list").appendChild(li);
 }
