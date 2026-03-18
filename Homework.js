@@ -29,3 +29,30 @@ function pairSums(numbers) {
 }
 
 
+//Task 2
+function addTask() {
+    var text=document.getElementById("inputText").value;
+
+    var li=document.createElement("li");
+
+    var checkbox=document.createElement("input");
+    checkbox.type="checkbox";
+
+    var span=document.createElement("span");
+    span.innerHTML=text;
+
+    checkbox.onchange=function() {
+        
+        if (checkbox.checked){
+            span.style.textDecoration="line-through";
+        }
+        else {
+            span.style.textDecoration="none";
+        }
+    };
+
+    li.append(checkbox);
+    li.appendChild(span);
+
+    document.getElementById("list").appendChild(li)
+}
