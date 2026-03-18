@@ -32,6 +32,7 @@ function pairSums(numbers) {
 //Task 2
 function addTask() {
     var text=document.getElementById("inputText").value;
+    var date=document.getElementById("dueDate").value;
 
     var li=document.createElement("li");
 
@@ -41,8 +42,10 @@ function addTask() {
     var span=document.createElement("span");
     span.innerHTML=text;
 
+    var deleteSpan=document.createElement("span");
+    deleteSpan.innerHTML=" "+date;
+
     checkbox.onchange=function() {
-        
         if (checkbox.checked){
             span.style.textDecoration="line-through";
         }
@@ -60,6 +63,7 @@ function addTask() {
 
     li.append(checkbox);
     li.appendChild(span);
+    li.appendChild(deleteSpan)
     li.appendChild(deleteBtn);
 
     document.getElementById("list").appendChild(li);
