@@ -36,6 +36,8 @@ function addTask() {
 
     var li=document.createElement("li");
 
+    li.setAttribute("data-date", date);
+
     var checkbox=document.createElement("input");
     checkbox.type="checkbox";
 
@@ -43,7 +45,7 @@ function addTask() {
     span.innerHTML=text;
 
     var deleteSpan=document.createElement("span");
-    deleteSpan.innerHTML=" "+date;
+    deleteSpan.innerHTML=""+date;
 
     checkbox.onchange=function() {
         if (checkbox.checked){
@@ -67,4 +69,28 @@ function addTask() {
     li.appendChild(deleteBtn);
 
     document.getElementById("list").appendChild(li);
+
+    sortTasks();
+}
+
+function sortTasks() {
+    var list=document.getElementById("list");
+    var items=Array.from(list.children);
+
+    items.sort(function(a,b) {
+        var dateA=a.getAttribute("data-date");
+        var dateB=b.getAttribute("data-date");
+
+        if (!dateA && !dateB) return 0;
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+
+        return new Date(dateA)-new Date(dateB);
+    });
+
+    list.innerHTML="";
+
+    items.forEach(function(item){
+        list.appendChild(item)
+    });
 }
